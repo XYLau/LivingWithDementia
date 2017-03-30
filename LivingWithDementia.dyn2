@@ -1,26 +1,88 @@
 {
   "story":{
-    "title":"Untitled",
-    "author":"",
-    "description":"",
+    "title":"Living With Dementia",
+    "author":"Lau Xing Yi (A0114573J)",
+    "description":"Live the life of a dementia-ridden old lady as she fumbles through her daily life. As she struggles to remember the people around her and attempt to complete tasks that were once simple and routine in her life, experience her world and peek at the facets of her life as she remembers it. \n\nShedding light on the life of a caregiver and her ward, this story was written referencing true stories and personal experiences in hopes of creating greater awareness about living with dementia.\n",
     "metadata":{
-      "comments":"",
+      "comments":"GitHub Respository: https://github.com/XYLau/LivingWithDementia",
       "readerStyle":"standard",
-      "backDisabled":false,
+      "backDisabled":true,
       "restartDisabled":false
     },
     "nodes":[{
-      "id":11,
-      "name":"Clock",
+      "id":3,
+      "name":"Introducing Grandma",
       "content":{
-        "text":"Day: dayNum\n\nBack in your room, you sit on your bed and wait for time to pass. \n\nNothing happens.\n\nLook at the clock \n\nContinue listening to your life tickle away\n\n",
+        "text":"Day: dayNum, Aggresion: AggressionLevel\n\n\nIntroduce Grandma and the other characters. \n\n(Remove this when done)\nDay 1: Toothbrush\nDay 2: Toothbrush + Bad News\nDay 3: Accident +Hospital\nDay 4: Discharge + Maid Agency\nDay 5: Wet Clothes + Phone Call\nDay 6: Salt \nDay 7: Bruises\n\nBegin\n\n",
         "rulesets":[{
-          "id":16,
+          "id":8,
+          "name":"Begin",
+          "start":277,
+          "end":283,
+          "rules":[{
+            "id":8,
+            "name":"Begin",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"LinkTo",
+              "params":{
+                "node":{
+                  "type":"node",
+                  "value":4
+                }
+              }
+            },{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":1
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":1
+                }
+              }
+            }]
+          }]
+        },{
+          "id":62,
+          "name":"Aggression Level",
+          "start":24,
+          "end":40,
+          "rules":[{
+            "id":104,
+            "name":"Aggression Level",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "NumberFactValue":{
+                  "type":"integerFact",
+                  "value":0
+                },
+                "text":{
+                  "type":"union",
+                  "value":"NumberFactValue"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":63,
           "name":"Day",
           "start":5,
-          "end":12,
+          "end":11,
           "rules":[{
-            "id":16,
+            "id":105,
             "name":"Day",
             "stopIfTrue":false,
             "conditionsOp":"or",
@@ -39,13 +101,22 @@
               }
             }]
           }]
-        },{
-          "id":18,
+        }]
+      },
+      "isStart":true,
+      "rules":[]
+    },{
+      "id":4,
+      "name":"Day 1",
+      "content":{
+        "text":"Day: dayNum, Aggresion: AggressionLevel\n\n\nIn the darkness of your room, you fumble around, trying to find a comfortable position.\n\nResting your arm above your forehead, you finally feel some relief from the soreness of your arm. \n\nYou shut your eyes, hoping to get some sleep.\n\nTry to sleep\n\nFind your slippers\n\nWalk to the bathroom\n\nTake a seat in the bathroom\n\nTake your toothbrush\n\nOption 1: The Blue one\nOption 2: The Pink one\n\nOption 1: Convince her it's not your fault\nOption 2: Stay silent while she continue to vent\n\nEat breakfast and hobble back to the room\n",
+        "rulesets":[{
+          "id":14,
           "name":"Next",
-          "start":119,
-          "end":163,
+          "start":525,
+          "end":567,
           "rules":[{
-            "id":18,
+            "id":14,
             "name":"Next",
             "stopIfTrue":false,
             "conditionsOp":"or",
@@ -55,13 +126,61 @@
               "params":{
                 "node":{
                   "type":"node",
-                  "value":13
+                  "value":11
+                }
+              }
+            },{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":3
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":0
+                }
+              }
+            },{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":0
+                }
+              }
+            },{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":0
                 }
               }
             }]
           },{
-            "id":65,
-            "name":"Hide next",
+            "id":69,
+            "name":"Hide",
             "stopIfTrue":false,
             "conditionsOp":"or",
             "conditions":[{
@@ -69,11 +188,11 @@
               "params":{
                 "input":{
                   "type":"integer",
-                  "value":8
+                  "value":6
                 },
                 "fact":{
                   "type":"integerFact",
-                  "value":6
+                  "value":3
                 },
                 "comparisonValue":{
                   "type":"union",
@@ -100,395 +219,10 @@
             }]
           }]
         },{
-          "id":38,
-          "name":"Look at the clock",
-          "start":99,
-          "end":116,
-          "rules":[{
-            "id":60,
-            "name":"Clock",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[],
-            "actions":[{
-              "actionType":"UpdateIntegerFacts",
-              "params":{
-                "factOperand1":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "operand1":{
-                  "type":"union",
-                  "value":"factOperand1"
-                },
-                "updateValue":{
-                  "type":"union",
-                  "value":"computation"
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"+"
-                },
-                "operand2":{
-                  "type":"union",
-                  "value":"userOperand2"
-                },
-                "userOperand2":{
-                  "type":"integer",
-                  "value":1
-                },
-                "computation":{
-                  "type":"product",
-                  "value":"operand1:operator:operand2"
-                }
-              }
-            }]
-          },{
-            "id":66,
-            "name":"Hide Clock",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":8
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            }],
-            "actions":[{
-              "actionType":"UpdateText",
-              "params":{
-                "textInput":{
-                  "type":"string",
-                  "value":""
-                },
-                "text":{
-                  "type":"union",
-                  "value":"textInput"
-                }
-              }
-            }]
-          }]
-        },{
-          "id":39,
-          "name":"Clock Result",
-          "start":81,
-          "end":98,
-          "rules":[{
-            "id":61,
-            "name":"Clock 1, 4, 5",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":1
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            },{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":4
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            },{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":5
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            }],
-            "actions":[{
-              "actionType":"UpdateText",
-              "params":{
-                "textInput":{
-                  "type":"string",
-                  "value":"Nothing happens.\n"
-                },
-                "text":{
-                  "type":"union",
-                  "value":"textInput"
-                }
-              }
-            }]
-          },{
-            "id":62,
-            "name":"Clock 2, 7",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":2
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            },{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":7
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            }],
-            "actions":[{
-              "actionType":"UpdateText",
-              "params":{
-                "textInput":{
-                  "type":"string",
-                  "value":"You hobble your way to the toilet. \n"
-                },
-                "text":{
-                  "type":"union",
-                  "value":"textInput"
-                }
-              }
-            }]
-          },{
-            "id":63,
-            "name":"Clock 3, 6",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":3
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            },{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":6
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            }],
-            "actions":[{
-              "actionType":"UpdateText",
-              "params":{
-                "textInput":{
-                  "type":"string",
-                  "value":"Hungry, you open your bedside cabinet and raid for some crackers.\n\nSatisfied, you quickly hide the food back into the drawer. \n"
-                },
-                "text":{
-                  "type":"union",
-                  "value":"textInput"
-                }
-              }
-            }]
-          },{
-            "id":64,
-            "name":"Clock 8",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":8
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":6
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            }],
-            "actions":[{
-              "actionType":"UpdateText",
-              "params":{
-                "textInput":{
-                  "type":"string",
-                  "value":"Wonder why your daughter isn't back from work yet.\n"
-                },
-                "text":{
-                  "type":"union",
-                  "value":"textInput"
-                }
-              }
-            }]
-          }]
-        }]
-      },
-      "isStart":false,
-      "rules":[]
-    },{
-      "id":4,
-      "name":"Toothbrush",
-      "content":{
-        "text":"Day: dayNum\n\nYour daughter wakes you up before leaving you with instructions to wash up. \n\nFind your slippers\n\nWalk to the bathroom\n\nTake a seat in the bathroom\n\nTake your toothbrush\n\nOption 1: The Blue one\nOption 2: The Pink one\n\nOption 1: Convince her it's not your fault\nOption 2: Stay silent while she continue to vent\n\nEat breakfast and hobble back to the room\n\n",
-        "rulesets":[{
-          "id":12,
-          "name":"Day",
-          "start":5,
-          "end":12,
-          "rules":[{
-            "id":12,
-            "name":"Day",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[],
-            "actions":[{
-              "actionType":"UpdateText",
-              "params":{
-                "NumberFactValue":{
-                  "type":"integerFact",
-                  "value":1
-                },
-                "text":{
-                  "type":"union",
-                  "value":"NumberFactValue"
-                }
-              }
-            }]
-          }]
-        },{
-          "id":14,
-          "name":"Next",
-          "start":324,
-          "end":366,
-          "rules":[{
-            "id":14,
-            "name":"Next",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[],
-            "actions":[{
-              "actionType":"LinkTo",
-              "params":{
-                "node":{
-                  "type":"node",
-                  "value":11
-                }
-              }
-            }]
-          }]
-        },{
           "id":27,
           "name":"Action = 0 --> 1",
-          "start":91,
-          "end":110,
+          "start":292,
+          "end":311,
           "rules":[{
             "id":29,
             "name":"Update response for Action = 1",
@@ -551,12 +285,51 @@
                 }
               }
             }]
+          },{
+            "id":89,
+            "name":"Hide until Action = 0",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":3
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"<"
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":""
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
           }]
         },{
           "id":29,
           "name":"Action = 1 --> 2",
-          "start":111,
-          "end":132,
+          "start":312,
+          "end":333,
           "rules":[{
             "id":33,
             "name":"Update response for Action = 2",
@@ -662,8 +435,8 @@
         },{
           "id":30,
           "name":"Action = 2 --> 3",
-          "start":133,
-          "end":161,
+          "start":334,
+          "end":362,
           "rules":[{
             "id":36,
             "name":"Update response for Action = 3",
@@ -769,8 +542,8 @@
         },{
           "id":31,
           "name":"Action = 3 --> 4",
-          "start":162,
-          "end":183,
+          "start":363,
+          "end":384,
           "rules":[{
             "id":39,
             "name":"Update response for Action = 4",
@@ -876,8 +649,8 @@
         },{
           "id":32,
           "name":"Action = 4 --> 5, Option 1: Blue",
-          "start":184,
-          "end":207,
+          "start":385,
+          "end":408,
           "rules":[{
             "id":42,
             "name":"Update response for Action = 5",
@@ -1039,8 +812,8 @@
         },{
           "id":34,
           "name":"Action = 4 --> 5, Option 2: Pink",
-          "start":207,
-          "end":230,
+          "start":408,
+          "end":431,
           "rules":[{
             "id":48,
             "name":"Update response for Action = 5",
@@ -1202,8 +975,8 @@
         },{
           "id":36,
           "name":"Action = 5 --> 6, Option 1: Convince",
-          "start":231,
-          "end":274,
+          "start":432,
+          "end":475,
           "rules":[{
             "id":54,
             "name":"Update response for Action = 6",
@@ -1401,8 +1174,8 @@
         },{
           "id":37,
           "name":"Action = 5 --> 6, Option 2: Silent",
-          "start":274,
-          "end":323,
+          "start":475,
+          "end":524,
           "rules":[{
             "id":57,
             "name":"Update response for Action = 6",
@@ -1561,22 +1334,106 @@
               }
             }]
           }]
-        }]
-      },
-      "isStart":false,
-      "rules":[]
-    },{
-      "id":3,
-      "name":"Introducing Grandma",
-      "content":{
-        "text":"Day: dayNum\n\nIntroduce Grandma and the other characters. \n\n(Remove this when done)\nDay 1: Toothbrush\nDay 2: Toothbrush + Bad News\nDay 3: Accident +Hospital\nDay 4: Discharge + Maid Agency\nDay 5: Wet Clothes + Phone Call\nDay 6: Salt \nDay 7: Bruises\n\nBegin\n\n",
-        "rulesets":[{
-          "id":0,
+        },{
+          "id":47,
+          "name":"Action = -1 --> 0",
+          "start":278,
+          "end":291,
+          "rules":[{
+            "id":87,
+            "name":"Update response for Action = 0",
+            "stopIfTrue":true,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":-1
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":3
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":">"
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"Just then, bright lights blind your eyes. \n\nYour daughter fumbles around the cabinets near your bed, finding your walking stick.  \n\n\"Hurry up and go to the toilet to wash up. I've got to go to work early today. Don't take your own sweet time.\"\n\nExhausted, you push yourself up from the bed and silently point at the walking stick drapped at the back of the door.\n\nShe picks it up and pass it to you and walks out.\n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          },{
+            "id":88,
+            "name":"Catch Action -1 --> 0",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":3
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":0
+                }
+              }
+            }]
+          }]
+        },{
+          "id":60,
+          "name":"Aggression Level",
+          "start":24,
+          "end":40,
+          "rules":[{
+            "id":102,
+            "name":"Aggression Level",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "NumberFactValue":{
+                  "type":"integerFact",
+                  "value":0
+                },
+                "text":{
+                  "type":"union",
+                  "value":"NumberFactValue"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":61,
           "name":"Day",
           "start":5,
-          "end":12,
+          "end":11,
           "rules":[{
-            "id":0,
+            "id":103,
             "name":"Day",
             "stopIfTrue":false,
             "conditionsOp":"or",
@@ -1595,30 +1452,1052 @@
               }
             }]
           }]
-        },{
-          "id":8,
-          "name":"Begin",
-          "start":248,
-          "end":254,
+        }]
+      },
+      "isStart":false,
+      "rules":[]
+    },{
+      "id":11,
+      "name":"Clock",
+      "content":{
+        "text":"Day: dayNum, Aggresion: AggressionLevel\n\n\nBack in your room, you sit on your bed and wait for time to pass. \n\nNothing happens.\n\nLook at the clock \n\n",
+        "rulesets":[{
+          "id":38,
+          "name":"Look at the clock",
+          "start":128,
+          "end":145,
           "rules":[{
-            "id":8,
-            "name":"Begin",
+            "id":60,
+            "name":"Clock",
             "stopIfTrue":false,
             "conditionsOp":"or",
             "conditions":[],
             "actions":[{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "factOperand1":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "operand1":{
+                  "type":"union",
+                  "value":"factOperand1"
+                },
+                "updateValue":{
+                  "type":"union",
+                  "value":"computation"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"+"
+                },
+                "operand2":{
+                  "type":"union",
+                  "value":"userOperand2"
+                },
+                "userOperand2":{
+                  "type":"integer",
+                  "value":1
+                },
+                "computation":{
+                  "type":"product",
+                  "value":"operand1:operator:operand2"
+                }
+              }
+            }]
+          },{
+            "id":66,
+            "name":"Hide Clock",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":5
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":""
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          },{
+            "id":73,
+            "name":"Next",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":5
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"Continue listening to your life tick away"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            },{
               "actionType":"LinkTo",
               "params":{
                 "node":{
                   "type":"node",
+                  "value":13
+                }
+              }
+            }]
+          }]
+        },{
+          "id":39,
+          "name":"Clock Result",
+          "start":110,
+          "end":127,
+          "rules":[{
+            "id":61,
+            "name":"Clock 1, 4, 5",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":1
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            },{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
                   "value":4
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"You play with the little purple spot on your arm. \n\nThis looks new. \n\nPressing it down, the little spot turns white before turning purple again. \n\nThis is fun. \n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          },{
+            "id":62,
+            "name":"Clock 2, 7",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":2
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            },{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"You hobble your way to the toilet and contemplate about life. \n\nWaddling back to your room, your stomach protests and you wonder if you had lunch yet. \n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          },{
+            "id":63,
+            "name":"Clock 3, 6",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":3
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            },{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":5
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"Stomach grumbling, you open your bedside cabinet and raid for some crackers.\n\nBelly full and satisfied, you quickly hide the food back into the drawer. \n\n\"Thank goodness I'm smart enough to keep some food here. Else, I would have starved long ago.\"\n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          },{
+            "id":64,
+            "name":"Clock 8",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":5
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":6
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"You wonder why your daughter isn't back from work yet.\n\nDistracted, you finger the white little block that shivers and sing a song once in a while.\n "
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":58,
+          "name":"Aggression Level",
+          "start":24,
+          "end":40,
+          "rules":[{
+            "id":100,
+            "name":"Aggression Level",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "NumberFactValue":{
+                  "type":"integerFact",
+                  "value":0
+                },
+                "text":{
+                  "type":"union",
+                  "value":"NumberFactValue"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":59,
+          "name":"Day",
+          "start":5,
+          "end":11,
+          "rules":[{
+            "id":101,
+            "name":"Day",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "NumberFactValue":{
+                  "type":"integerFact",
+                  "value":1
+                },
+                "text":{
+                  "type":"union",
+                  "value":"NumberFactValue"
                 }
               }
             }]
           }]
         }]
       },
-      "isStart":true,
+      "isStart":false,
+      "rules":[]
+    },{
+      "id":13,
+      "name":"Dinner (at home)",
+      "content":{
+        "text":"Day: dayNum, Aggresion: AggressionLevel\n\n\nMetal jingles against metal. The old wooden door slams. \n\nYour daughter is home. Finally. \n\nFridge door creaks, pots screech, gas lit.\n\nThe scent of dinner fills the house. \n\nYou hear the resounding sound of food scooped into the ceremic bowls.\n\nYour stomach grumbles. \n\nOption 1: Tentatively walk out and sit at the dining table\nOption 2: Sit and wait for your daughter to call you\n \n\nOption 1: Leave the bowls on the table\nOption 2: Bring the bowls to the basin to wash\n \n\nGo back inside your room and sleep\n",
+        "rulesets":[{
+          "id":19,
+          "name":"Choice A, Option 1",
+          "start":313,
+          "end":372,
+          "rules":[{
+            "id":19,
+            "name":"Option 1",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":1
+                }
+              }
+            }]
+          },{
+            "id":67,
+            "name":"Hide ",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":">"
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":""
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":20,
+          "name":"Choice A, Option 2",
+          "start":372,
+          "end":425,
+          "rules":[{
+            "id":20,
+            "name":"Option 2",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":2
+                }
+              }
+            }]
+          },{
+            "id":68,
+            "name":"Hide",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":">"
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":""
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":41,
+          "name":"Choice B, Option 1",
+          "start":428,
+          "end":467,
+          "rules":[{
+            "id":71,
+            "name":"Option 1",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":1
+                }
+              }
+            }]
+          },{
+            "id":72,
+            "name":"Hide",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            },{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":">"
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":""
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":42,
+          "name":"Choice B, Option 2",
+          "start":467,
+          "end":514,
+          "rules":[{
+            "id":74,
+            "name":"Choice B, Option 2",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "updateValue":{
+                  "type":"union",
+                  "value":"inputValue"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "inputValue":{
+                  "type":"integer",
+                  "value":1
+                }
+              }
+            }]
+          },{
+            "id":75,
+            "name":"Hide",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            },{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":">"
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":""
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":44,
+          "name":"Choice A Result",
+          "start":425,
+          "end":427,
+          "rules":[{
+            "id":80,
+            "name":"Option 1",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":1
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"You heave onto the creaky plastic chair. \n\nTaking a huge sigh of relief, you take a look at the dining table. \n\nVegetables again. Sigh. \n\nYou mindlessly spoon food into your mouth through the awkward silence, punctuated only with the dialogues from the 8PM drama.\n\nYour chopsticks grasps air. You look down, only to see the empty bowl staring back at you. \n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          },{
+            "id":81,
+            "name":"Option 2",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":2
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":4
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"\"DINNER IS READY! STILL NEED TO GET A SEDAN CHAIR TO USHER YOU OUT AH?\"\n\nSulking, you timidly walk to the dining table. \n\nYou heave onto the creaky plastic chair. \n\nTaking a huge sigh of relief, you take a look at the dining table. \n\nVegetables again. Sigh. \n\nYou mindlessly spoon food into your mouth through the awkward silence, punctuated only with the dialogues from the 8PM drama.\n\nYour chopsticks grasps air. You look down, only to see the empty bowl staring back at you. \n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":45,
+          "name":"Choice B Result",
+          "start":514,
+          "end":516,
+          "rules":[{
+            "id":82,
+            "name":"Option 1",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":1
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"\"Eat finish already or not. Hurry up can?? I got work to do one leh! Everyday also like that! You think I very free ah???\"\n\nYou timidly put the rice bowl down on the table and quietly step away.\n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          },{
+            "id":83,
+            "name":"Option 2",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":2
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":"\"PUT DOWN! You want to break my rice bowl also ah? Want me to lose my job then let's see who pay your medical bill! How many times do I need to tell you...\"\n\nYou quietly put the rice bowl down in the basin and quietly step away. \n"
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":46,
+          "name":"Next",
+          "start":517,
+          "end":552,
+          "rules":[{
+            "id":85,
+            "name":"Next",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateIntegerFacts",
+              "params":{
+                "factOperand1":{
+                  "type":"integerFact",
+                  "value":1
+                },
+                "operand1":{
+                  "type":"union",
+                  "value":"factOperand1"
+                },
+                "updateValue":{
+                  "type":"union",
+                  "value":"computation"
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":1
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"+"
+                },
+                "operand2":{
+                  "type":"union",
+                  "value":"userOperand2"
+                },
+                "userOperand2":{
+                  "type":"integer",
+                  "value":1
+                },
+                "computation":{
+                  "type":"product",
+                  "value":"operand1:operator:operand2"
+                }
+              }
+            }]
+          },{
+            "id":86,
+            "name":"Show",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[{
+              "conditionType":"IntegerFactComparison",
+              "params":{
+                "input":{
+                  "type":"integer",
+                  "value":0
+                },
+                "fact":{
+                  "type":"integerFact",
+                  "value":5
+                },
+                "comparisonValue":{
+                  "type":"union",
+                  "value":"input"
+                },
+                "operator":{
+                  "type":"selectedListValue",
+                  "value":"="
+                }
+              }
+            }],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "textInput":{
+                  "type":"string",
+                  "value":""
+                },
+                "text":{
+                  "type":"union",
+                  "value":"textInput"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":54,
+          "name":"Aggression Level",
+          "start":24,
+          "end":40,
+          "rules":[{
+            "id":96,
+            "name":"Aggression Level",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "NumberFactValue":{
+                  "type":"integerFact",
+                  "value":0
+                },
+                "text":{
+                  "type":"union",
+                  "value":"NumberFactValue"
+                }
+              }
+            }]
+          }]
+        },{
+          "id":55,
+          "name":"Day",
+          "start":5,
+          "end":11,
+          "rules":[{
+            "id":97,
+            "name":"Day",
+            "stopIfTrue":false,
+            "conditionsOp":"or",
+            "conditions":[],
+            "actions":[{
+              "actionType":"UpdateText",
+              "params":{
+                "NumberFactValue":{
+                  "type":"integerFact",
+                  "value":1
+                },
+                "text":{
+                  "type":"union",
+                  "value":"NumberFactValue"
+                }
+              }
+            }]
+          }]
+        }]
+      },
+      "isStart":false,
       "rules":[]
     },{
       "id":16,
@@ -1667,217 +2546,6 @@
                 "node":{
                   "type":"node",
                   "value":13
-                }
-              }
-            }]
-          }]
-        }]
-      },
-      "isStart":false,
-      "rules":[]
-    },{
-      "id":13,
-      "name":"Dinner (at home)",
-      "content":{
-        "text":"Day: dayNum\n\nYour daughter comes home. Finally. \nThe scent of dinner fills the house. \nYou hear the resounding sound of food scooped into the ceremic bowls.\nYour stomach grumbles. \n\nTentatively walk out and sit at the dining table\nSit and wait for your daughter to call you\n\nFrom Option 1: (Nothing happens)\nFrom Option 2: Get scolded for waiting to be served\n\nEat dinner. Finish dinner. \nOption 1: Leave the bowls on the table\nOption 2: Bring the bowls to the basin and wash\n\nFrom Option 1: (Nothing happens)\nFrom Option 2: Get scolded for trying to wash dishes but might break them\n\nGo back inside your room and sleep\n",
-        "rulesets":[{
-          "id":17,
-          "name":"Day",
-          "start":5,
-          "end":12,
-          "rules":[{
-            "id":17,
-            "name":"Day",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[],
-            "actions":[{
-              "actionType":"UpdateText",
-              "params":{
-                "NumberFactValue":{
-                  "type":"integerFact",
-                  "value":1
-                },
-                "text":{
-                  "type":"union",
-                  "value":"NumberFactValue"
-                }
-              }
-            }]
-          }]
-        },{
-          "id":19,
-          "name":"DinnerHome_Option1",
-          "start":182,
-          "end":231,
-          "rules":[{
-            "id":19,
-            "name":"DinnerHome_Option1",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[],
-            "actions":[{
-              "actionType":"UpdateIntegerFacts",
-              "params":{
-                "updateValue":{
-                  "type":"union",
-                  "value":"inputValue"
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":2
-                },
-                "inputValue":{
-                  "type":"integer",
-                  "value":1
-                }
-              }
-            }]
-          }]
-        },{
-          "id":20,
-          "name":"DinnerHome_Option2",
-          "start":231,
-          "end":274,
-          "rules":[{
-            "id":20,
-            "name":"DinnerHome_Option2",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[],
-            "actions":[{
-              "actionType":"UpdateIntegerFacts",
-              "params":{
-                "updateValue":{
-                  "type":"union",
-                  "value":"inputValue"
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":2
-                },
-                "inputValue":{
-                  "type":"integer",
-                  "value":2
-                }
-              }
-            }]
-          }]
-        },{
-          "id":23,
-          "name":"Next",
-          "start":585,
-          "end":620,
-          "rules":[{
-            "id":23,
-            "name":"Next",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[],
-            "actions":[{
-              "actionType":"UpdateIntegerFacts",
-              "params":{
-                "factOperand1":{
-                  "type":"integerFact",
-                  "value":1
-                },
-                "operand1":{
-                  "type":"union",
-                  "value":"factOperand1"
-                },
-                "updateValue":{
-                  "type":"union",
-                  "value":"computation"
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":1
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"+"
-                },
-                "operand2":{
-                  "type":"union",
-                  "value":"userOperand2"
-                },
-                "userOperand2":{
-                  "type":"integer",
-                  "value":1
-                },
-                "computation":{
-                  "type":"product",
-                  "value":"operand1:operator:operand2"
-                }
-              }
-            }]
-          },{
-            "id":24,
-            "name":"Next Day",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":2
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":1
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            }],
-            "actions":[{
-              "actionType":"LinkTo",
-              "params":{
-                "node":{
-                  "type":"node",
-                  "value":10
-                }
-              }
-            }]
-          },{
-            "id":25,
-            "name":"Next Day",
-            "stopIfTrue":false,
-            "conditionsOp":"or",
-            "conditions":[{
-              "conditionType":"IntegerFactComparison",
-              "params":{
-                "input":{
-                  "type":"integer",
-                  "value":3
-                },
-                "fact":{
-                  "type":"integerFact",
-                  "value":1
-                },
-                "comparisonValue":{
-                  "type":"union",
-                  "value":"input"
-                },
-                "operator":{
-                  "type":"selectedListValue",
-                  "value":"="
-                }
-              }
-            }],
-            "actions":[{
-              "actionType":"LinkTo",
-              "params":{
-                "node":{
-                  "type":"node",
-                  "value":12
                 }
               }
             }]
@@ -2007,38 +2675,38 @@
       "rules":[]
     }],
     "facts":[{
-      "id":0,
-      "name":"Aggression Level",
-      "type":"int",
-      "initialValue":0
-    },{
-      "id":1,
-      "name":"Day Counter",
-      "type":"int",
-      "initialValue":0
-    },{
       "id":3,
       "name":"Node Action",
+      "type":"int",
+      "initialValue":-1
+    },{
+      "id":2,
+      "name":"DinnerHome_Option",
       "type":"int",
       "initialValue":0
     },{
       "id":6,
-      "name":"Clock",
+      "name":"Counter: Clock",
+      "type":"int",
+      "initialValue":0
+    },{
+      "id":1,
+      "name":"Counter: Day",
       "type":"int",
       "initialValue":0
     },{
       "id":5,
-      "name":"Morning - OptionB",
+      "name":"Node ChoiceB",
       "type":"int",
       "initialValue":0
     },{
       "id":4,
-      "name":"Morning - OptionA",
+      "name":"Node ChoiceA",
       "type":"int",
       "initialValue":0
     },{
-      "id":2,
-      "name":"DinnerHome_Option",
+      "id":0,
+      "name":"Aggression Level",
       "type":"int",
       "initialValue":0
     }],
@@ -2048,13 +2716,25 @@
     "Default Story Viewer":{
       "zoomLevel":0.8,
       "nodes":[{
-        "id":16,
-        "x":1137.5,
-        "y":271.25
-      },{
         "id":13,
         "x":1142.5,
-        "y":15.0
+        "y":17.5
+      },{
+        "id":11,
+        "x":776.25,
+        "y":17.5
+      },{
+        "id":4,
+        "x":380.0,
+        "y":17.5
+      },{
+        "id":3,
+        "x":17.5,
+        "y":16.25
+      },{
+        "id":16,
+        "x":1142.5,
+        "y":277.5
       },{
         "id":10,
         "x":381.25,
@@ -2064,21 +2744,9 @@
         "x":775.0,
         "y":285.0
       },{
-        "id":3,
-        "x":17.5,
-        "y":17.5
-      },{
-        "id":11,
-        "x":777.5,
-        "y":20.0
-      },{
         "id":12,
         "x":386.25,
         "y":575.0
-      },{
-        "id":4,
-        "x":380.0,
-        "y":20.0
       }]
     }
   }
